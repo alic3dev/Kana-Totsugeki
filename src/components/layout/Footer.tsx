@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { FaGitAlt } from 'react-icons/fa6'
+
 import { SettingsContextObject, SettingsContext } from '../../contexts/settings'
 import { Locale, LocalizationContext } from '../../contexts/localization'
 
@@ -20,8 +22,12 @@ export function Footer() {
   return (
     <div className="game-footer">
       <div className="game-footer-item">
-        <a href="https://github.com/alic3dev/Kana-Totsugeki">
-          <i className="fa fa-code-fork" aria-hidden="true"></i>
+        <a
+          href="https://github.com/alic3dev/Kana-Totsugeki"
+          title="Github Repo"
+          aria-label="Github Repo"
+        >
+          <FaGitAlt />
         </a>
       </div>
       <div className="game-footer-item">

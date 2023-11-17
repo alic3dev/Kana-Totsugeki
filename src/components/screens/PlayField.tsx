@@ -7,6 +7,8 @@ import { CurrentScreen } from '.'
 import { SettingsContext, SettingsContextObject } from '../../contexts/settings'
 import { formatedQuestions, FormatedQuestion } from '../../data/questions'
 
+import { FaHeart } from 'react-icons/fa6'
+
 import './PlayField.scss'
 
 export function PlayField({
@@ -291,28 +293,31 @@ export function PlayField({
         <div className="game-input-underline"></div>
         <ScoreCounter score={gameScore} />
       </div>
-      <div className="game-heart-container">
+      <div
+        className="game-heart-container"
+        aria-label={`${health} out of ${settings.settings.lives} lives left`}
+      >
         <div className={`game-heart ${health < 1 ? 'down' : ''}`}>
-          <i className="fa fa-heart" aria-hidden="true"></i>
+          <FaHeart />
         </div>
         {settings.settings.lives > 1 && (
           <div className={`game-heart ${health < 2 ? 'down' : ''}`}>
-            <i className="fa fa-heart" aria-hidden="true"></i>
+            <FaHeart />
           </div>
         )}
         {settings.settings.lives > 2 && (
           <div className={`game-heart ${health < 3 ? 'down' : ''}`}>
-            <i className="fa fa-heart" aria-hidden="true"></i>
+            <FaHeart />
           </div>
         )}
         {settings.settings.lives > 3 && (
           <div className={`game-heart ${health < 4 ? 'down' : ''}`}>
-            <i className="fa fa-heart" aria-hidden="true"></i>
+            <FaHeart />
           </div>
         )}
         {settings.settings.lives > 4 && (
           <div className={`game-heart ${health > 5 && 'down'}`}>
-            <i className="fa fa-heart" aria-hidden="true"></i>
+            <FaHeart />
           </div>
         )}
       </div>

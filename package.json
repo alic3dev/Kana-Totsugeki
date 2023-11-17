@@ -26,7 +26,8 @@
   "homepage": "https://github.com/alic3dev/Kana-Totsugeki#readme",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.12.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
