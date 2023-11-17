@@ -42,6 +42,11 @@ export function Fader({
 
         const elapsedTime = time - startingTime
 
+        /**
+         * FIXME: Set opacity based on starting opacity in case Fader is rerendered during,
+         *        this can occur when changing languages during fade animation for example
+         */
+
         const opacity = Math.min(1, elapsedTime / Constants.ANIMATION_LENGTH)
         faderRef.current.style.opacity = `${opacity}`
 
