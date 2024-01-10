@@ -26,6 +26,40 @@ export function Options({
   const getOnOptionToggle = React.useCallback(
     (name: keyof Settings): (() => void) =>
       (): void => {
+        if (settings.settings[name]) {
+          let isQuestions: boolean = false
+          let isAnswers: boolean = false
+
+          switch (name) {
+            case 'hiraganaQuestions':
+            case 'katakanaQuestions':
+            case 'romajiQuestions':
+              isQuestions = true
+              break
+            case 'hiraganaAnswers':
+            case 'katakanaAnswers':
+            case 'romajiAnswers':
+              isAnswers = true
+              break
+          }
+
+          if (isQuestions) {
+            const activeCount: number =
+              (settings.settings.hiraganaQuestions ? 1 : 0) +
+              (settings.settings.katakanaQuestions ? 1 : 0) +
+              (settings.settings.romajiQuestions ? 1 : 0)
+
+            if (activeCount <= 1) return
+          } else if (isAnswers) {
+            const activeCount: number =
+              (settings.settings.hiraganaAnswers ? 1 : 0) +
+              (settings.settings.katakanaAnswers ? 1 : 0) +
+              (settings.settings.romajiAnswers ? 1 : 0)
+
+            if (activeCount <= 1) return
+          }
+        }
+
         settings.dispatch({ type: 'toggle', name })
       },
     [settings]
